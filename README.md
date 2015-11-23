@@ -73,6 +73,7 @@ The following is a brief overview of everything in this project:
    - `src/bootstrap.ts` - the entry point of the application
    - `src/index.html` - the HTML for page which bootstraps the app. This loads Angular, SystemJS then loads the bootstrap code.
    - `src/main.css` - CSS for index page
+
 - `gulpfile.js` - the gulp build
 - `package.json` - details the nature of this project and its dependencies (as used by `npm install`)
 - `tsconfig.json` - the TypeScript compiler configuration
