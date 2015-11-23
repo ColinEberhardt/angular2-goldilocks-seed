@@ -6,18 +6,20 @@
 </head>
 
 <body>
-  <hello-world>Loading...</hello-world>
+  <greeting>Loading...</greeting>
 </body>
 
 <script src="lib/system-csp-production.js"></script>
 
 <script>
+  // allow modules to be referenced without a 'js' file extension
   System.config({defaultJSExtensions: true});
 </script>
 <script src="lib/angular2.min.js"></script>
 
 <script>
-  System.import('app/app').catch(console.log.bind(console));
+  System.import('bootstrap.js')
+    .catch(console.log.bind(console));
 </script>
 
 </html>
