@@ -7,15 +7,22 @@ const browserSync = require('browser-sync');
 const tslint = require('gulp-tslint');
 const reload = browserSync.reload;
 
+const paths = {
+  dist: 'dist',
+  distFiles: 'dist/**/*',
+  srcFiles: 'src/**/*',
+  srcTsFiles: 'src/**/*.ts',
+}
+
 // clean the contents of the distribution directory
 gulp.task('clean', function () {
-  return del('dist/**/*');
+  return del(paths.distFiles);
 });
 
 // copy static assets - i.e. non TypeScript compiled source
 gulp.task('copy:assets', ['clean'], function() {
-  return gulp.src(['src/**/*.html', 'src/**/*.css'])
-    .pipe(gulp.dest('dist'))
+  return gulp.src([paths.srcFiles, '!' + paths.srcTsFiles])
+    .pipe(gulp.dest(paths.dist))
 });
 
 // copy dependencies
@@ -30,16 +37,16 @@ gulp.task('copy:libs', ['clean'], function() {
 // TypeScript compile
 gulp.task('compile', ['clean'], function () {
   return gulp
-    .src('src/**/*.ts')
+    .src(paths.srcTsFiles)
     .pipe(sourcemaps.init())
     .pipe(typescript(tscConfig.compilerOptions))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(paths.dist));
 });
 
 // linting
 gulp.task('tslint', function(){
-  return gulp.src('src/**/*.ts')
+  return gulp.src(paths.srcTsFiles)
     .pipe(tslint())
     .pipe(tslint.report('verbose'));
 });
@@ -48,11 +55,11 @@ gulp.task('tslint', function(){
 gulp.task('serve', ['build'], function() {
   browserSync({
     server: {
-      baseDir: 'dist'
+      baseDir: paths.dist
     }
   });
 
-  gulp.watch('src/**/*.*', ['buildAndReload']);
+  gulp.watch(paths.srcFiles, ['buildAndReload']);
 });
 
 gulp.task('build', ['tslint', 'clean', 'compile', 'copy:libs', 'copy:assets']);

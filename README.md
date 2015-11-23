@@ -1,6 +1,6 @@
 # Angular 2 + TypeScript seed - "Goldilocks Edition"
 
-Setting up a build for Angular 2.0 is a non-trivial task and can suck up a lot of your time. I found a few 'seed' projects, which provide a good starting point for Angular 2.0 development, however the ones I found were either too simple or far too complicated for my needs. That's why I decided to put together a simple, yet complete, seed project that was "just right", the [Goldilocks](https://en.wikipedia.org/wiki/Goldilocks_and_the_Three_Bears) of seed projects!
+Setting up a build for Angular 2.0 is a non-trivial task and can suck up a lot of your time. I found a few 'seed' projects, which provide a good starting point for Angular 2.0 development, however the ones I found were either [too simple](https://github.com/pkozlowski-opensource/ng2-play) or [far too complicated](https://github.com/mgechev/angular2-seed) for my needs. That's why I decided to put together a simple, yet complete, seed project that was "just right", the [Goldilocks](https://en.wikipedia.org/wiki/Goldilocks_and_the_Three_Bears) of seed projects!
 
 This project has TypeScript compilation, source maps, linting, live reload and also packages the built output into a distribution folder.
 
