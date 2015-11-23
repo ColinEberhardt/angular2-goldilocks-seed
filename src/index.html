@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular2 seed</title>
+</head>
+
+<body>
+  <hello-world>Loading...</hello-world>
+</body>
+
+<script src="lib/system-csp-production.js"></script>
+
+<script>
+  System.config({defaultJSExtensions: true});
+</script>
+<script src="lib/angular2.min.js"></script>
+
+<script>
+  System.import('app/app').catch(console.log.bind(console));
+</script>
+
+</html>
