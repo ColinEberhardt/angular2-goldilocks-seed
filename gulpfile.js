@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const clean = require('gulp-clean');
+const del = require('del');
 const typescript = require('gulp-typescript');
 const sourcemaps = require('gulp-sourcemaps');
 const tscConfig = require('./tsconfig.json');
@@ -9,8 +9,7 @@ const reload = browserSync.reload;
 
 // clean the contents of the distribution directory
 gulp.task('clean', function () {
-  return gulp.src(['dist'])
-     .pipe(clean());
+  return del('dist/**/*');
 });
 
 // copy static assets - i.e. non TypeScript compiled source
@@ -56,6 +55,6 @@ gulp.task('serve', ['build'], function() {
   gulp.watch('src/**/*.*', ['buildAndReload']);
 });
 
-gulp.task('build', ['tslint', 'compile', 'copy:libs', 'copy:assets']);
+gulp.task('build', ['tslint', 'clean', 'compile', 'copy:libs', 'copy:assets']);
 gulp.task('buildAndReload', ['build'], reload);
 gulp.task('default', ['build']);
