@@ -6,5 +6,5 @@ import {Component} from 'angular2/angular2';
   styleUrls: ['component/greeting/greeting.css']
 })
 export default class Greeting {
-  greeting: String = 'Hello World';
+  greeting = 'Hello World';
 }
