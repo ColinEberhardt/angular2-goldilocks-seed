@@ -69,8 +69,8 @@ The following is a brief overview of everything in this project:
 
  - `dist` - this folder is constructed by the build and contains the compiled output ready to be served
  - `src` - all of the project source lives in this folder
-   - `src/component/greeting` - the one Angular 2 component that this project contains, containing the modules TypeScript, HTML and CSS.
-   - `src/bootstrap.ts` - the entry point of the application
+   - `src/app/greeting/greeting.*` - the one Angular 2 component that this project contains, containing the modules TypeScript, HTML and CSS.
+   - `src/app/bootstrap.ts` - the entry point of the application
    - `src/index.html` - the HTML for page which bootstraps the app. This loads Angular, SystemJS then loads the bootstrap code.
    - `src/main.css` - CSS for index page
 
