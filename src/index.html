@@ -9,17 +9,22 @@
   <greeting>Loading...</greeting>
 </body>
 
-<script src="lib/system-csp-production.js"></script>
+<script src="lib/angular2-polyfills.js"></script>
+<script src="lib/system.src.js"></script>
+<script src="lib/Rx.js"></script>
+<script src="lib/angular2.dev.js"></script>
 
 <script>
-  // allow modules to be referenced without a 'js' file extension
-  System.config({defaultJSExtensions: true});
-</script>
-<script src="lib/angular2.min.js"></script>
-
-<script>
-  System.import('bootstrap.js')
-    .catch(console.log.bind(console));
+  System.config({
+    packages: {
+      component: {
+        format: 'register',
+        defaultExtension: 'js'
+      }
+    }
+  });
+  System.import('component/bootstrap')
+        .then(null, console.error.bind(console));
 </script>
 
 </html>
